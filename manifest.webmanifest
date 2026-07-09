@@ -1,0 +1,17 @@
+{
+  "name": "סגולות – תיקון הכללי",
+  "short_name": "סגולות",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "he",
+  "dir": "rtl",
+  "categories": ["books", "lifestyle", "education"],
+  "background_color": "#0b0906",
+  "theme_color": "#0b0906",
+  "icons": [
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
