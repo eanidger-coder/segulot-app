@@ -1,5 +1,5 @@
 /* סגולות — service worker: network-first (always fresh when online) + offline fallback */
-const CACHE = 'segulot-v2';
+const CACHE = 'segulot-v3';
 
 self.addEventListener('install', (e) => {
   self.skipWaiting();
@@ -18,8 +18,11 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== self.location.origin) return;
+  // Navigations (the HTML document) bypass the HTTP cache so a fresh deploy shows
+  // up immediately; hashed assets keep the normal network-first-then-cache path.
+  const fetchReq = req.mode === 'navigate' ? new Request(req, { cache: 'no-store' }) : req;
   e.respondWith(
-    fetch(req)
+    fetch(fetchReq)
       .then((res) => {
         if (res && res.status === 200 && res.type === 'basic') {
           const copy = res.clone();
