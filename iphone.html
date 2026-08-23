@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>סְגֻלּוֹת על האייפון</title>
+<meta name="description" content="מדריך קצר: איך שמים את אפליקציית סגולות על מסך הבית של האייפון, בשלושה צעדים. בחינם, בלי פרסומות ובלי הרשמה.">
+<meta name="theme-color" content="#f2ebdd">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="סגולות">
+<meta property="og:title" content="סְגֻלּוֹת · אפליקציה חינמית">
+<meta property="og:description" content="תיקון הכללי, תהילים, שער הביטחון, פרשת המן וסדר תפילין. מנוקד ומוטעם. מדריך קצר להתקנה על האייפון.">
+<meta property="og:url" content="https://eanidger-coder.github.io/segulot-app/iphone.html">
+<meta property="og:image" content="https://eanidger-coder.github.io/segulot-app/icon-512.png">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" type="image/png" href="./favicon.png">
+<link rel="apple-touch-icon" href="./icon-512.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Assistant:wght@400;600;700&display=swap">
+
+<style>
+  :root {
+    --bg: #f2ebdd;
+    --surface: #fcf8f0;
+    --ink: #241d14;
+    --ink-soft: #5f5445;
+    --rule: #ddd0b8;
+    --accent: #1b5a77;
+    --accent-ink: #ffffff;
+    --accent-wash: #e2edf2;
+    --shadow: 0 1px 2px rgba(36,29,20,.06), 0 8px 24px -12px rgba(36,29,20,.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #100d09;
+      --surface: #1a1510;
+      --ink: #f1e9da;
+      --ink-soft: #b0a493;
+      --rule: #352a1f;
+      --accent: #7cc4e4;
+      --accent-ink: #0d1b22;
+      --accent-wash: #16303c;
+      --shadow: 0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Assistant", "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .page {
+    max-width: 33rem;
+    margin: 0 auto;
+    padding: 2.75rem 1.35rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .head { display: flex; flex-direction: column; gap: .6rem; }
+
+  .eyebrow {
+    margin: 0;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    color: var(--accent);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: "Frank Ruhl Libre", "Times New Roman", serif;
+    font-weight: 700;
+    font-size: clamp(2.9rem, 13vw, 3.9rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    text-wrap: balance;
+  }
+
+  .lede {
+    margin: 0;
+    font-size: 1.12rem;
+    color: var(--ink-soft);
+    max-width: 30ch;
+  }
+
+  .open { display: flex; flex-direction: column; gap: .8rem; }
+
+  .cta {
+    display: block;
+    background: var(--accent);
+    color: var(--accent-ink);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 1.15rem 1.5rem;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+  }
+  .cta:hover { filter: brightness(1.08); }
+  .cta:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .cta-note {
+    margin: 0;
+    font-size: .98rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 0 .3rem;
+    font-family: "Frank Ruhl Libre", "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .sub { margin: 0 0 1.6rem; color: var(--ink-soft); font-size: 1rem; }
+
+  ol.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 1.15rem 1.15rem 1.2rem;
+    display: grid;
+    grid-template-columns: 3.1rem 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .glyph {
+    width: 3.1rem;
+    height: 3.1rem;
+    border-radius: 50%;
+    background: var(--accent-wash);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+  }
+  .glyph svg { width: 1.7rem; height: 1.7rem; display: block; }
+
+  .num {
+    display: block;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .13em;
+    color: var(--accent);
+    margin-bottom: .12rem;
+  }
+
+  .step h3 {
+    margin: 0 0 .28rem;
+    font-size: 1.16rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .step p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+  .step b { color: var(--ink); font-weight: 700; }
+
+  .done {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .done h2 { margin: 0; }
+  .done p { margin: 0; color: var(--ink-soft); }
+  .done b { color: var(--ink); }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: .97rem;
+    color: var(--ink-soft);
+  }
+  footer p { margin: 0; }
+  footer b { color: var(--ink); }
+  footer a { color: var(--accent); }
+
+  .sig {
+    font-family: "Frank Ruhl Libre", "Times New Roman", serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    padding-top: .4rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <header class="head">
+    <p class="eyebrow">בחינם · בלי פרסומות · בלי הרשמה</p>
+    <h1>סְגֻלּוֹת</h1>
+    <p class="lede">תיקון הכללי, תהילים, שער הביטחון, פרשת המן וסדר הנחת תפילין. מנוקד ומוטעם, לפי נוסח ספרד.</p>
+  </header>
+
+  <div class="open">
+    <a class="cta" href="./">פתיחת האפליקציה</a>
+    <p class="cta-note">נפתחת ישר בדפדפן, בלי להוריד כלום.</p>
+  </div>
+
+  <section>
+    <h2>לשים אותה על מסך הבית</h2>
+    <p class="sub">שלוש פעולות באייפון, פחות מדקה. אחר כך היא נפתחת כמו כל אפליקציה.</p>
+
+    <ol class="steps">
+
+      <li class="step">
+        <span class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="m15.6 8.4-2.1 5.1-5.1 2.1 2.1-5.1z"></path>
+          </svg>
+        </span>
+        <div>
+          <span class="num">צעד ראשון</span>
+          <h3>לפתוח את הקישור בספארי</h3>
+          <p>הכפתור הכחול למעלה. אם הקישור נפתח בתוך וואטסאפ, יש לחיצה על סמל המצפן בפינה כדי לעבור ל<b>ספארי</b>.</p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3.2v11.3"></path>
+            <path d="M8.4 6.8 12 3.2l3.6 3.6"></path>
+            <path d="M6.4 10.6H4.6v10.2h14.8V10.6h-1.8"></path>
+          </svg>
+        </span>
+        <div>
+          <span class="num">צעד שני</span>
+          <h3>ללחוץ על כפתור השיתוף</h3>
+          <p>הריבוע עם החץ כלפי מעלה, <b>בסרגל שבתחתית המסך</b>. זה אותו כפתור שבו משתפים קישור.</p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3.6" y="3.6" width="16.8" height="16.8" rx="4.4"></rect>
+            <path d="M12 8.4v7.2M8.4 12h7.2"></path>
+          </svg>
+        </span>
+        <div>
+          <span class="num">צעד שלישי</span>
+          <h3>לבחור "הוספה למסך הבית"</h3>
+          <p>גוללים מעט ברשימה שנפתחת עד שרואים אותה, ואז <b>הוספה</b> בפינה הימנית העליונה.</p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section class="done">
+    <h2>וזהו</h2>
+    <p>האייקון יושב על מסך הבית. נפתחת במסך מלא, בלי סרגלי דפדפן, <b>ועובדת גם בלי אינטרנט</b> אחרי הפתיחה הראשונה.</p>
+  </section>
+
+  <footer>
+    <p><b>אנדרואיד?</b> אותו קישור בדיוק, בכרום. תפריט שלוש הנקודות ← "התקנת אפליקציה".</p>
+    <p>מצאתם טעות כתיב או ניקוד? יש קישור לדיווח בתוך האפליקציה, במסך ההגדרות.</p>
+    <p><a href="./privacy.html">מדיניות פרטיות</a> · <a href="./accessibility.html">הצהרת נגישות</a> · <a href="./terms.html">תנאי שימוש</a></p>
+    <p class="sig">האפליקציה נבנתה לזיכוי הרבים. אין בה תשלום, מנוי או פרסומות, ואפשר להעביר אותה הלאה לכל מי שירצה.</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
