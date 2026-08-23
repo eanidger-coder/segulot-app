@@ -6,17 +6,33 @@
     <meta name="theme-color" content="#efeade" />
     <link rel="icon" type="image/png" href="./favicon.png" />
     <link rel="apple-touch-icon" href="./icon-512.png" />
+    <!-- iPhone: "Add to Home Screen" installs this as a standalone app; the title is what sits under the icon -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="סגולות" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <title>סְגֻלּוֹת</title>
     <script>
+      /* Theme and sacred-text face are applied BEFORE the bundle loads. React state
+         would be too late: the first paint would use the default face and then swap,
+         which on a page of vocalized text is a visible jolt on every single launch. */
       try {
         var t = localStorage.getItem('theme');
         document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
       } catch (e) {
         document.documentElement.setAttribute('data-theme', 'light');
       }
+      try {
+        // Whitelisted, not pasted straight onto the element: this runs before the
+        // bundle and writes an attribute that selects a CSS rule, so an unknown or
+        // stale value must fall back to the default face rather than land as-is.
+        // 'taamey' is the default and needs no attribute at all.
+        var f = (localStorage.getItem('serifFont') || '').replace(/"/g, '');
+        if (['keter', 'nachlieli', 'david', 'shofar'].indexOf(f) >= 0) {
+          document.documentElement.setAttribute('data-font', f);
+        }
+      } catch (e) { /* keep the default face */ }
     </script>
-    <script type="module" crossorigin src="./assets/app-CNalUwfh.js"></script>
+    <script type="module" crossorigin src="./assets/app-CvAI6Ahn.js"></script>
   </head>
   <body>
     <div id="root"></div>
