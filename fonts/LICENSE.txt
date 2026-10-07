@@ -1,0 +1,6 @@
+Fonts (public/fonts)
+
+גופנים · מפרויקט קולמוס, ברישיון GPL 2 עם חריג גופנים: Taamey Frank CLM · Keter YG, Nachlieli CLM, Hadasim CLM ו-Shofar (יורם גנת) · David CLM, שהאותיות הלטיניות והספרות שבו מבית Bitstream Charter, זכויות Bitstream Inc. 1990, לפי תנאי הרישיון שלו · Rubik (SIL OFL 1.1)
+
+The Culmus fonts: GNU General Public License, version 2, with the font exception.
+Rubik: SIL Open Font License 1.1.
