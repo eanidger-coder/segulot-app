@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.segulot.app",
+      "sha256_cert_fingerprints": [
+        "85:E0:02:46:1E:55:E5:C1:5D:9B:09:A7:0F:52:AB:C1:10:76:B1:80:BD:86:8F:62:A6:4B:74:62:E8:C8:1E:1B",
+        "15:CA:1D:4C:E7:1C:1E:A9:7D:83:79:75:40:AE:FC:A6:96:85:B5:50:C7:AC:9F:82:07:37:30:31:55:7B:E8:04"
+      ]
+    }
+  }
+]
